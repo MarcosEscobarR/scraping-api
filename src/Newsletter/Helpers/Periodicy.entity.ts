@@ -1,0 +1,1 @@
+export const Periodicy = "daily" || 'weekly' || "monday" || "tuesday" || "wednesday" || "thursday"  || "friday" || "saturday" || "sunday"
