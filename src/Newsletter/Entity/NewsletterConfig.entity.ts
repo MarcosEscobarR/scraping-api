@@ -1,5 +1,6 @@
 import {Column, Entity, JoinColumn, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Supermarket} from "../../supermarket/entities/supermarkets.entity";
+import {NewsletterConfigSupermarket} from "./NewsletterConfigSupermarket.entity";
 
 @Entity()
 export class NewsletterConfig {
@@ -12,4 +13,7 @@ export class NewsletterConfig {
     @ManyToMany(() => Supermarket, c => c.config)
     @JoinColumn()
     supermarkets: Supermarket[]
+    @OneToMany(() => NewsletterConfigSupermarket, c => c.newsletterConfig)
+    newsletterConfigSupermarket: NewsletterConfigSupermarket[];
+
 }

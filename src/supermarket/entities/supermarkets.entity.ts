@@ -2,11 +2,12 @@ import {
   Column,
   Entity, JoinColumn,
   JoinTable,
-  ManyToMany, ManyToOne,
+  ManyToMany, ManyToOne, OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import {Category} from "../../categories/entities/category.entity";
 import {NewsletterConfig} from "../../Newsletter/Entity/NewsletterConfig.entity";
+import {NewsletterConfigSupermarket} from "../../Newsletter/Entity/NewsletterConfigSupermarket.entity";
 
 @Entity()
 export class Supermarket {
@@ -31,4 +32,8 @@ export class Supermarket {
 
   @ManyToMany(() => NewsletterConfig, c => c.supermarkets)
   config: NewsletterConfig[]
+  
+  @OneToMany(() => NewsletterConfigSupermarket, c => c.supermarket)
+  newsletterConfigSupermarket: NewsletterConfigSupermarket[];
+
 }
